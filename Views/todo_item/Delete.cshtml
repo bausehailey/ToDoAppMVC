@@ -1,0 +1,57 @@
+﻿@model To_Do__MVC.todo_item
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>todo_item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.todo_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.todo_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.todo_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.todo_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.todo_completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.todo_completed)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.todo_dateadded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.todo_dateadded)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

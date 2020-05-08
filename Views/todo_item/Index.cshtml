@@ -1,0 +1,56 @@
+﻿@model IEnumerable<To_Do__MVC.todo_item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>To Do List</h2>
+
+<p>
+    @Html.ActionLink("Add A Task", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Completed?
+        </th>
+        <th>
+            Task
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Date Added
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.todo_completed, new { @id = "itemCheckbox"})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.todo_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.todo_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.todo_dateadded)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.todo_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.todo_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.todo_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <input type="submit" value="Save" class="btn btn-default" />
+</p>
